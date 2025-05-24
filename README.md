@@ -1,3 +1,81 @@
+# MyShop Backend
+
+Backend for the **MyShop** project developed with **FastAPI**.  
+Main features:
+- User authentication and registration
+- CRUD management for products
+
+## Technologies Used
+
+- **FastAPI** (Python)
+- **PostgreSQL** (containerized)
+- **pgAdmin** (containerized)
+- **Docker** & **Docker Compose**
+
+## Prerequisites
+
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+
+## Installation
+
+1. **Clone the repository**
+    ```bash
+    git@github.com:ndeyetou/my-shop-backend.git
+    ```
+
+2. **Start the services**
+    ```bash
+    docker-compose up --build
+    ```
+
+3. **Create a virtual environment (optional)**  
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    ```
+
+4. **Run FastAPI manually (optional)**  
+    Start FastAPI:
+    ```bash
+    uvicorn app.main:app --reload
+    ```
+
+5. **Access the API**
+    - Interactive documentation: [http://localhost:8000/docs](http://localhost:8000/docs)
+
+6. **Access pgAdmin**
+    - [http://localhost:5050](http://localhost:5050)
+    - Use the credentials defined in `.env`
+
+## Main Endpoints
+
+- `POST /auth/register`: User registration
+- `POST /auth/login`: User authentication
+- `GET /api/v1/products/products/`: List all products
+- `GET /api/v1/products/products/{product_id}`: Get a product by ID
+- `POST /api/v1/products/products/`: Create a product
+- `PUT /api/v1/products/products/{product_id}`: Update a product
+- `DELETE /api/v1/products/products/{product_id}`: Delete a product
+
+## Configuration
+To generate a random secret key (for example, for JWT), you can use the following command:
+
+```bash
+python3 -c "import secrets; print(secrets.token_urlsafe(32))"
+```
+
+Environment variables (JWT_SECRET, etc.) should be set in a `.env` file.
+
+
+
+
+
+
+
+
+
 # MyShopFrontend
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
